@@ -1,0 +1,19 @@
+{
+    "Guest" : {
+        "denied" : {},
+        "Home" : ["*"],
+        "Auth" : ["login", "register", "resetPassword"],
+        "Restricted" : ["*"]
+    },
+    "LoggedIn" : {
+        "denied" : {
+            "Auth" : ["login", "register", "resetPassword"]
+        },
+        "Auth" : ["logout"],
+        "Profile" : ["*"]
+    },
+    "Admin" : {
+        "denied" : {},
+        "Admindashboard" : ["*"]
+    }
+}
