@@ -16,7 +16,7 @@ class MDT20260611234446CreateExerciseTable extends Migration {
     public function up(): void {
         Schema::create('exercise', function (Blueprint $table) {
             $table->id();
-
+            $table->string('name', 155);
         });
     }
 
