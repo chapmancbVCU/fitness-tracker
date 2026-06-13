@@ -10,7 +10,9 @@
             "Auth" : ["login", "register", "resetPassword"]
         },
         "Auth" : ["logout"],
-        "Profile" : ["*"]
+        "Profile" : ["*"],
+        "Fitness" : ["*"],
+        "WorkoutType" : ["*"]
     },
     "Admin" : {
         "denied" : {},
