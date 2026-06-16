@@ -15,6 +15,11 @@ class WorkoutTypeController extends Controller {
         $this->view->setLayout('default');
     }
 
+    public function editAction(mixed $param): void {
+        $props = ['param' => $param];
+        $this->view->renderJsx('workouttype.Edit', $props);
+    }
+
     public function indexAction(): void {
         $this->view->renderJsx("workouttype.Index");
     }
