@@ -1,9 +1,18 @@
 import React from "react";
+import documentTitle from "@chappy/utils/documentTitle";
+import route from "@chappy/utils/route";
 function Index() {
+    documentTitle("My Workouts");
 
     return (
         <>
-            Workout Types
+            <div className="d-flex ">
+                <h1 className="text-center">My Workouts</h1>
+                <a href={route('workoutType.edit', ['new'])} className="btn btn-primary btn-sm mx-2 mb-3">
+                    <i class="fa fa-add"></i>Add
+                </a>
+            </div>
+            
         </>
     );
 }        
