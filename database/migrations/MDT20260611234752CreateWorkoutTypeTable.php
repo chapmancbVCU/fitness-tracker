@@ -17,6 +17,8 @@ class MDT20260611234752CreateWorkoutTypeTable extends Migration {
         Schema::create('workout_type', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
+            $table->integer('user_id');
+            $table->index('user_id');
         });
     }
 
