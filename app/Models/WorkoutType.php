@@ -11,14 +11,15 @@ class WorkoutType extends Model {
     // public const blackList = [];
 
     // Set to name of database table.
-    protected static $_table = 'workout-type';
+    protected static $_table = 'workout_type';
 
     // Soft delete
     // protected static $_softDelete = true;
     
     // Fields from your database
     public string $name;
-
+    public int $id;
+    
     public function afterDelete(): void {
         // Implement your function
     }
@@ -41,6 +42,6 @@ class WorkoutType extends Model {
      * @return void
      */
     public function validator(): void {
-        // Implement your function
+        $this->runValidation('name', ['required'], "Workout Name");
     }
 }
