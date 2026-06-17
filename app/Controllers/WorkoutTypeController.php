@@ -20,7 +20,7 @@ class WorkoutTypeController extends Controller {
 
     public function editAction(mixed $param): void {
         $user_id = AuthService::currentUser()->id;
-        $workoutType = ($param == 'new') ? new WorkoutType() : WorkoutType::findAllByUserId($user_id);
+        $workoutType = ($param == 'new') ? new WorkoutType() : WorkoutType::findById($param);
 
         if($this->request->isPost()) {
             $this->request->csrfCheck();
@@ -32,12 +32,14 @@ class WorkoutTypeController extends Controller {
 
         $props = [
             'param' => $param,
-            'errors' => $workoutType->getErrorMessages()
+            'errors' => $workoutType->getErrorMessages(),
+            'workoutType' => $workoutType
         ];
         $this->view->renderJsx('workouttype.Edit', $props);
     }
 
     public function indexAction(): void {
-        $this->view->renderJsx("workouttype.Index");
+        $workoutTypes = WorkoutType::findAllByUserId(AuthService::currentUser()->id);
+        $this->view->renderJsx("workouttype.Index", ['workoutTypes' => $workoutTypes]);
     }
 }
