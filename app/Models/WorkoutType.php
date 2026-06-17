@@ -18,7 +18,8 @@ class WorkoutType extends Model {
     
     // Fields from your database
     public string $name;
-    public int $id;
+    public $id;
+    public int $user_id;
     
     public function afterDelete(): void {
         // Implement your function
