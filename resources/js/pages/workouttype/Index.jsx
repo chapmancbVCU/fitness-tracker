@@ -24,9 +24,13 @@ function Index({ workoutTypes }) {
                     {workoutTypes.map((workoutType) => (
                         <tr key={workoutType.id}>
                             <td>
-                                <a href={route('workoutType.Edit', [workoutType.id])}>{workoutType.name}</a> 
+                                {workoutType.name}
                             </td>
-                            <td></td>
+                            <td className="text-center w-25">
+                                <a href={route('workoutType.Edit', [workoutType.id])} className="btn btn-info btn-sm">
+                                    <i className="fa fa-edit"></i> Edit
+                                </a>
+                            </td>
                         </tr>
                     ))}
                 </tbody>
