@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers;
+
+use App\Models\WorkoutType;
 use Core\Controller;
+use Core\Services\AuthService;
 
 /**
  * Undocumented class
@@ -16,7 +19,21 @@ class WorkoutTypeController extends Controller {
     }
 
     public function editAction(mixed $param): void {
-        $props = ['param' => $param];
+        $user_id = AuthService::currentUser()->id;
+        $workoutType = ($param == 'new') ? new WorkoutType() : WorkoutType::findAllByUserId($user_id);
+
+        if($this->request->isPost()) {
+            $this->request->csrfCheck();
+            $workoutType->assign($this->request->get());
+            $workoutType->user_id = $user_id;
+            $workoutType->save();
+            if($workoutType->validationPassed()) redirect('workoutType.Index');
+        }
+
+        $props = [
+            'param' => $param,
+            'errors' => $workoutType->getErrorMessages()
+        ];
         $this->view->renderJsx('workouttype.Edit', $props);
     }
 
