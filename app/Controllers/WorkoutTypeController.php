@@ -18,6 +18,15 @@ class WorkoutTypeController extends Controller {
         $this->view->setLayout('default');
     }
 
+    public function deleteAction(int $id): void {
+        $workoutType = WorkoutType::findById($id);
+        if($this->request->isPost()) {
+            $this->request->csrfCheck();
+            $workoutType->delete();
+            redirect('workoutType.Index');
+        }
+    }
+
     public function editAction(mixed $param): void {
         $user_id = AuthService::currentUser()->id;
         $workoutType = ($param == 'new') ? new WorkoutType() : WorkoutType::findById($param);
@@ -35,11 +44,11 @@ class WorkoutTypeController extends Controller {
             'errors' => $workoutType->getErrorMessages(),
             'workoutType' => $workoutType
         ];
-        $this->view->renderJsx('workouttype.Edit', $props);
+        $this->view->renderJsx('workoutType.Edit', $props);
     }
 
     public function indexAction(): void {
         $workoutTypes = WorkoutType::findAllByUserId(AuthService::currentUser()->id);
-        $this->view->renderJsx("workouttype.Index", ['workoutTypes' => $workoutTypes]);
+        $this->view->renderJsx("workoutType.Index", ['workoutTypes' => $workoutTypes]);
     }
 }
