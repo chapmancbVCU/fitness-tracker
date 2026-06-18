@@ -9,7 +9,7 @@ import Forms from "@chappy/components/Forms";
  * @returns 
  */
 function Index({ workoutTypes }) {
-    documentTitle("My Workouts");
+    documentTitle("My Workout Types");
     
     async function onDeleteClick(e) {
         if(!window.confirm("Are you sure?")) {
@@ -21,7 +21,7 @@ function Index({ workoutTypes }) {
     return (
         <>
             <div className="d-flex justify-content-center">
-                <h1 className="text-center">My Workouts</h1>
+                <h1 className="text-center">My Workout Types</h1>
                 <a href={route('workoutType.edit', ['new'])} className="btn btn-primary btn-sm mx-2 mb-3">
                     <i className="fa fa-add mt-2"></i>Add
                 </a>

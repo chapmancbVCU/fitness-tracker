@@ -5,7 +5,7 @@ import route from "@chappy/utils/route";
 
 function Edit({ param, errors, workoutType }) {
 
-    const title = (param === 'new') ? "Add a new workout type" : "Edit workout name"
+    const title = (param === 'new') ? "Add a new workout type" : "Edit workout type name"
     documentTitle(title)
     return (
         <>
