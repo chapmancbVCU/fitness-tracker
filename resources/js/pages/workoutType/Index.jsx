@@ -20,10 +20,10 @@ function Index({ workoutTypes }) {
 
     return (
         <>
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center align-items-center">
                 <h1 className="text-center">My Workout Types</h1>
-                <a href={route('workoutType.edit', ['new'])} className="btn btn-primary btn-sm mx-2 mb-3">
-                    <i className="fa fa-add mt-2"></i>Add
+                <a href={route('workoutType.edit', ['new'])} className="btn btn-primary btn-sm mx-2">
+                    <i className="fa fa-add"></i>Add
                 </a>
             </div>
 
