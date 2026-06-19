@@ -12,7 +12,8 @@
         "Auth" : ["logout"],
         "Profile" : ["*"],
         "Fitness" : ["*"],
-        "WorkoutType" : ["*"]
+        "WorkoutType" : ["*"],
+        "Workout" : ["*"]
     },
     "Admin" : {
         "denied" : {},
