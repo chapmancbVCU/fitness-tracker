@@ -22,7 +22,7 @@ function Edit({ param, errors, workoutType }) {
                             name="name"
                             value={workoutType.name}
                             inputAttrs={{className: 'form-control input-sm'}}
-                            outputAttrs={{className: 'form-group mb-3'}}
+                            divAttrs={{className: 'form-group mb-3'}}
                         />
                         <div className="col-md-12 text-end mt-3">
                             <a href={route('workoutType')} className="btn btn-default">Cancel</a>
