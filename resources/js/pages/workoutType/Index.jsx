@@ -27,7 +27,7 @@ function Index({ workoutTypes }) {
                 </a>
             </div>
 
-            <table className="w-50 mx-auto table table-striped table-bordered table-hover">
+            <table className="w-50 mt-5 mx-auto table table-striped table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>Name</th>
