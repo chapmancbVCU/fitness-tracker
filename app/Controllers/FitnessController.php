@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 use Core\Controller;
+use Core\Services\AuthService;
 
 /**
  * Undocumented class
@@ -16,6 +17,7 @@ class FitnessController extends Controller {
     }
 
     public function indexAction(): void {
-        $this->view->renderJsx('fitness.Index');
+        $user = AuthService::currentUser();
+        $this->view->renderJsx('fitness.Index', ['user' => $user]);
     }
 }
