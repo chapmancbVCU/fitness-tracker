@@ -17,7 +17,8 @@ class Exercise extends Model {
     // protected static $_softDelete = true;
     
     // Fields from your database
-
+    public $id;
+    public string $name;
 
     public function afterDelete(): void {
         // Implement your function
