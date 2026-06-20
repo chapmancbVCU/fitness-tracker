@@ -15,6 +15,10 @@ class ExerciseController extends Controller {
         $this->view->setLayout('default');
     }
 
+    public function editAction(mixed $param): void {
+
+    }
+    
     public function indexAction(): void {
         $this->view->renderJsx('exercise.Index');
     }
