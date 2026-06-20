@@ -18,6 +18,15 @@ class ExerciseController extends Controller {
         $this->view->setLayout('default');
     }
 
+    public function deleteAction(int $id): void {
+        $exercise = Exercise::findById($id);
+        if($this->request->isPost()) {
+            $this->request->csrfCheck();
+            $exercise->delete();
+            redirect('exercise.Index');
+        }
+    }
+
     public function editAction(mixed $param): void {
         $user_id = AuthService::currentUser()->id;
         $exercise = ($param == 'new') ? new Exercise() : Exercise::findById($param);
