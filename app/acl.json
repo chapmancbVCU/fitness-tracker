@@ -13,7 +13,8 @@
         "Profile" : ["*"],
         "Fitness" : ["*"],
         "WorkoutType" : ["*"],
-        "Workout" : ["*"]
+        "Workout" : ["*"],
+        "Exercise" : ["*"]
     },
     "Admin" : {
         "denied" : {},
