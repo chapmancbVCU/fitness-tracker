@@ -1,4 +1,8 @@
 {
-    "My Workout Types" : "WorkoutType/index",
+    "Management" : {
+        "My Workout Types" : "WorkoutType/index",
+        "My Exercises" : "Exercise/index"
+    },
+
     "Admin" : "admindashboard/index"
 }
