@@ -5,7 +5,7 @@ function Index({ exercises }) {
     return (
         <>
             <div className="d-flex justify-content-center align-items-center">
-                <h1>Your Exercises</h1>
+                <h1 className="me-3">Your Exercises</h1>
                 <a href={route('exercise.edit', ['new'])}  className="btn btn-primary btm-sm-mx-2">
                     <i className="fa fa-add"></i>Add
                 </a>
