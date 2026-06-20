@@ -18,6 +18,7 @@ class MDT20260611234428CreateWorkoutTable extends Migration {
             $table->id();
             $table->integer('user_id');
             $table->integer('workout_type_id');
+            $table->text('notes');
             $table->timestamps();
 
             // Indexes
