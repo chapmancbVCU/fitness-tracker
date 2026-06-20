@@ -7,6 +7,7 @@ function Edit({ param, errors, workoutType }) {
 
     const title = (param === 'new') ? "Add a new workout type" : "Edit workout type name"
     documentTitle(title)
+    
     return (
         <>
             <h1 className="text-center">{title}</h1>
