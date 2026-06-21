@@ -9,7 +9,7 @@ function Index({ beginTime, workoutTypes }) {
             {workoutTypes.length > 0 ? (
                 <div className="row align-items-center justify-content-center mt-5">
                     <div className="col-md-6 bg-light p-3">
-                        <form className="form" method="post" action={route('workout.exercises')}>
+                        <form className="form" method="post" action="">
                             <Forms.CSRFInput />
                             <Forms.Select 
                                 label="Select Workout Type"

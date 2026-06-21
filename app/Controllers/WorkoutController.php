@@ -28,16 +28,18 @@ class WorkoutController extends Controller {
             'workoutTypes' => $workoutTypes,
             'beginTime' => DateTime::formatTime($time, DateTime::FORMAT_DATE_ONLY)
         ];
+        
+        if($this->request->isPost()) {
+            $this->request->csrfCheck();
+            $workoutTypeId = $this->request->get('workout_type_id');
+            redirect('workout.Exercises', [$workoutTypeId]);
+        }
 
         $this->view->renderJsx('workout.Index', $props);
     }
 
-    public function exercisesAction(): void {
-        if($this->request->isPost()) {
-            $this->request->csrfCheck();
-            $workoutTypeId = $this->request->get('workout_type_id');
-            $workoutType = WorkoutType::findById((int)$workoutTypeId);
-            $this->view->renderJsx('workout.Exercises', ['workoutType' => $workoutType]);
-        }
+    public function exercisesAction(int $workoutTypeId): void {
+        $workoutType = WorkoutType::findById($workoutTypeId);
+        $this->view->renderJsx('workout.Exercises', ['workoutType' => $workoutType]);
     }
 }
