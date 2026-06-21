@@ -3,7 +3,7 @@ function Exercises({ workoutType }) {
 
     return (
         <>
-            <h1 className="text-center">{workoutType.name} Day Setup</h1>
+            <h1 className="text-center">Track Your Workout</h1>
             
         </>
     );
