@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Exercise;
 use App\Models\WorkoutType;
 use Core\Controller;
 use Core\Lib\Utilities\DateTime;
@@ -28,7 +29,7 @@ class WorkoutController extends Controller {
             'workoutTypes' => $workoutTypes,
             'beginTime' => DateTime::formatTime($time, DateTime::FORMAT_DATE_ONLY)
         ];
-        
+
         if($this->request->isPost()) {
             $this->request->csrfCheck();
             $workoutTypeId = $this->request->get('workout_type_id');
@@ -40,6 +41,18 @@ class WorkoutController extends Controller {
 
     public function exercisesAction(int $workoutTypeId): void {
         $workoutType = WorkoutType::findById($workoutTypeId);
-        $this->view->renderJsx('workout.Exercises', ['workoutType' => $workoutType]);
+        $exercises = Exercise::find();
+
+        $props = [
+            'exercises' => $exercises,
+            'workoutType' => $workoutType
+        ];
+
+        if($this->request->isPost()) {
+            
+        }
+        $this->view->renderJsx('workout.Exercises', $props);
     }
+
+    
 }
