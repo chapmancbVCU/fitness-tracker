@@ -1,11 +1,13 @@
 <?php
 namespace App\Models;
 use Core\Model;
+use Core\Traits\HasTimestamps;
 
 /**
  * Implements features of the Exercise class.
  */
 class Exercise extends Model {
+    use HasTimestamps;
 
     // Fields you don't want saved on form submit
     // public const blackList = [];
@@ -19,6 +21,7 @@ class Exercise extends Model {
     // Fields from your database
     public $id;
     public string $name;
+    public int $workout_id;
 
     public function afterDelete(): void {
         // Implement your function
@@ -33,7 +36,7 @@ class Exercise extends Model {
     }
 
     public function beforeSave(): void {
-        // Implement your function
+        $this->timeStamps();
     }
 
     /**
