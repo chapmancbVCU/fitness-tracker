@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Exercise;
+use App\Models\Workout;
 use App\Models\WorkoutType;
 use Core\Controller;
 use Core\Lib\Utilities\DateTime;
@@ -40,10 +41,24 @@ class WorkoutController extends Controller {
     }
 
     public function exercisesAction(int $workoutTypeId, mixed $param): void {
+        $user = AuthService::currentUser();
+        $workout = ($param == 'new') ? new Workout() : Workout::findById($param);
+        
+        $props = [];
+        if($param == 'new') {
+            $workout->user_id = $user->id;
+            $workout->workout_type_id = $workoutTypeId;
+            $workout->save();
+        }
+
+
+            
+
         $workoutType = WorkoutType::findById($workoutTypeId);
         $exercises = Exercise::find();
 
         $props = [
+            'workout' => $workout,
             'exercises' => $exercises,
             'workoutType' => $workoutType
         ];
