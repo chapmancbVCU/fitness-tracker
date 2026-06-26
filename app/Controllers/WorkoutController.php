@@ -33,13 +33,13 @@ class WorkoutController extends Controller {
         if($this->request->isPost()) {
             $this->request->csrfCheck();
             $workoutTypeId = $this->request->get('workout_type_id');
-            redirect('workout.Exercises', [$workoutTypeId]);
+            redirect('workout.Exercises', [$workoutTypeId, 'new']);
         }
 
         $this->view->renderJsx('workout.Index', $props);
     }
 
-    public function exercisesAction(int $workoutTypeId): void {
+    public function exercisesAction(int $workoutTypeId, mixed $param): void {
         $workoutType = WorkoutType::findById($workoutTypeId);
         $exercises = Exercise::find();
 
@@ -49,7 +49,7 @@ class WorkoutController extends Controller {
         ];
 
         if($this->request->isPost()) {
-            
+
         }
         $this->view->renderJsx('workout.Exercises', $props);
     }
