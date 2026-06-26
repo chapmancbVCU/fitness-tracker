@@ -2,7 +2,7 @@ import React from "react";
 import route from "@chappy/utils/route";
 import Forms from "@chappy/components/Forms";
 
-function Exercises({ exercises, workoutType }) {
+function Exercises({ exercises, workout, workoutType }) {
 
     return (
         <>
@@ -11,7 +11,7 @@ function Exercises({ exercises, workoutType }) {
             {exercises.length > 0 ? (
                 <div className="row align-items-center justify-content-center mt-5">
                     <div className="col-md-6 bg-light p-3">
-                        <form className="form" method="post" action="">
+                        <form className="form" method="post" action={route('workout.exercises', [workoutType.id, workout.id])}>
                             <Forms.CSRFInput />
                             <Forms.Select 
                                 label="Select an Exercise"
