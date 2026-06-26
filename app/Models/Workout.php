@@ -21,7 +21,7 @@ class Workout extends Model {
     public $id;
     public $notes;
     public $updatedAt;
-    public $userId;
+    public $user_id;
 
 
     public function afterDelete(): void {
