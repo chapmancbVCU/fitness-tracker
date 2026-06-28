@@ -39,6 +39,14 @@ class Exercise extends Model {
         $this->timeStamps();
     }
 
+    public static function placeholder(int $user_id): Exercise {
+        $placeholder = new Exercise();
+        $placeholder->user_id = $user_id;
+        $placeholder->name = "Please select an exercise";
+        $placeholder->id = 0;
+        return $placeholder;
+    }
+
     /**
      * Performs validation for the Exercise model.
      *

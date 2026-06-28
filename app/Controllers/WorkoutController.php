@@ -34,7 +34,6 @@ class WorkoutController extends Controller {
         if($this->request->isPost()) {
             $this->request->csrfCheck();
             $workoutTypeId = $this->request->get('workout_type_id');
-            $workout = new Workout();
 
             redirect('workout.Exercises', [$workoutTypeId, 'new']);
         }
@@ -59,6 +58,9 @@ class WorkoutController extends Controller {
 
         $workoutType = WorkoutType::findById($workoutTypeId);
         $exercises = Exercise::find();
+        
+        
+        array_unshift($exercises, Exercise::placeholder($user->id));
 
         $props = [
             'workout' => $workout,
@@ -67,7 +69,9 @@ class WorkoutController extends Controller {
         ];
 
         if($this->request->isPost()) {
-
+            $this->request->csrfCheck();
+            $workout->assign($this->request->get());
+            $workout->save();
         }
         $this->view->renderJsx('workout.Exercises', $props);
     }
