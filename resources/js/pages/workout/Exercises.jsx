@@ -13,6 +13,12 @@ function Exercises({ exercises, workout, workoutType }) {
                     <div className="col-md-6 bg-light p-3">
                         <form className="form" method="post" action={route('workout.exercises', [workoutType.id, workout.id])}>
                             <Forms.CSRFInput />
+                            <Forms.RichText 
+                                label="Notes"
+                                name="notes"
+                                value={workout.notes}
+                                divAttrs={{ className: 'form-group mb-3'}}
+                            />
                             <Forms.Select 
                                 label="Select an Exercise"
                                 name="exercise_id"
