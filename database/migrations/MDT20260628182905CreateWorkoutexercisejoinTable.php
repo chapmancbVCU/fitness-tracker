@@ -5,7 +5,7 @@ use Core\Lib\Database\Blueprint;
 use Core\Lib\Database\Migration;
 
 /**
- * Migration class for the workout-exercise-join table.
+ * Migration class for the workout_exercise_join table.
  */
 class MDT20260628182905CreateWorkoutexercisejoinTable extends Migration {
     /**
@@ -14,7 +14,7 @@ class MDT20260628182905CreateWorkoutexercisejoinTable extends Migration {
      * @return void
      */
     public function up(): void {
-        Schema::create('workout-exercise-join', function (Blueprint $table) {
+        Schema::create('workout_exercise_join', function (Blueprint $table) {
             $table->id();
             $table->integer('workout_id');
             $table->index('workout_id');
@@ -29,6 +29,6 @@ class MDT20260628182905CreateWorkoutexercisejoinTable extends Migration {
      * @return void
      */
     public function down(): void {
-        Schema::dropIfExists('workout-exercise-join');
+        Schema::dropIfExists('workout_exercise_join');
     }
 }
