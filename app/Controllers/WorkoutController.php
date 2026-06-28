@@ -34,6 +34,8 @@ class WorkoutController extends Controller {
         if($this->request->isPost()) {
             $this->request->csrfCheck();
             $workoutTypeId = $this->request->get('workout_type_id');
+            $workout = new Workout();
+
             redirect('workout.Exercises', [$workoutTypeId, 'new']);
         }
 
@@ -48,6 +50,7 @@ class WorkoutController extends Controller {
         if($param == 'new') {
             $workout->user_id = $user->id;
             $workout->workout_type_id = $workoutTypeId;
+            $workout->notes = "";
             $workout->save();
         }
 
