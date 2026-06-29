@@ -3,6 +3,7 @@ namespace App\Controllers;
 
 use App\Models\Exercise;
 use App\Models\Workout;
+use App\Models\WorkoutExerciseJoin;
 use App\Models\WorkoutType;
 use Core\Controller;
 use Core\Lib\Utilities\DateTime;
@@ -72,6 +73,12 @@ class WorkoutController extends Controller {
             $this->request->csrfCheck();
             $workout->assign($this->request->get());
             $workout->save();
+            // dd($workout);
+
+            $workoutExercise = new WorkoutExerciseJoin();
+            $workoutExercise->workout_id = $workout->id;
+            $workoutExercise->exercise_id = $this->request->get('exercise_id');
+            $workoutExercise->save();
         }
         $this->view->renderJsx('workout.Exercises', $props);
     }
